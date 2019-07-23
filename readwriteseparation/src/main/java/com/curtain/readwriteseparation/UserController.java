@@ -2,6 +2,7 @@ package com.curtain.readwriteseparation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,9 +16,9 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping("save")
-    public void save() {
+    public void save(Long id) {
         User user = new User();
-        user.setId(100L);
+        user.setId(id);
         user.setName("dalaoyang");
         user.setCity("beijing");
         userRepository.save(user);
